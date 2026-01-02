@@ -2,7 +2,6 @@
 title: Tackling Linux Privilege Escalation - HTB Edition
 published: 2026-01-02
 description: "Simple guide for the common Linux privilege escalation attack vectors"
-image: "./cover.jpeg"
 tags: ["HTB", "Easy", "Linux"]
 category: Guide
 draft: false
