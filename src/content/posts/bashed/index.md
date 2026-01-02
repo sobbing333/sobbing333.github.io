@@ -2,7 +2,6 @@
 title: Bashed - Writeup
 published: 2026-01-02
 description: "Writeup for the HackTheBox linux machine, 'Bashed'"
-image: "./cover.jpeg"
 tags: ["HTB", "Easy", "Linux"]
 category: Writeup
 draft: false
