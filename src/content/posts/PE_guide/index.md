@@ -1,3 +1,13 @@
+---
+title: Tackling Linux Privilege Escalation - HTB Edition
+published: 2026-01-02
+description: "Simple guide for the common Linux privilege escalation attack vectors"
+image: "./cover.jpeg"
+tags: ["HTB", "Easy", "Linux"]
+category: Guide
+draft: false
+---
+
 When I first started trying machine labs on HTB (HackTheBox), I struggled a lot with privilege escalation because I only had a very brief introduction to it without actually learning it. I was mainly focusing on AD (Active Directory) at the time, so it felt really foreign trying to get `root` on the available labs. The most I would do on Linux machines was run `linpeas` and quickly skim the output for low hanging fruit. If nothing obvious stood out, I would call it a day, look at the available walkthroughs and it felt like finding the solution on my own was impossible. On top of that, I wasn't familiar at all with Linux at the time which only led to more confusion. This led me to take a full break from the lab machines because it felt too difficult.
 
 After finishing my AD studies and getting much more familiar with Linux, I decided to give the Linux machines another go on HTB. Over time, I noticed patterns for escalation paths and became more familiar with what to look for. It felt like the once scattered puzzle pieces were finally coming together. I started developing shortcuts for my methodology and added things that were missing. If given time, privilege escalation can be really fun and not as daunting as it may seem at first glance. I still have a lot more to learn, but below I'll share the most common ways I came across to escalate to `root` for __easy Linux machines__ on HTB with examples. Something to note is that a lot of machines will use a combination of these in order to reach `root` (as shown in the provided example). In this case, enumeration would be key to see how everything links together. The more you work on these machines, the more you will notice patterns and everything becomes more intuitive. 
