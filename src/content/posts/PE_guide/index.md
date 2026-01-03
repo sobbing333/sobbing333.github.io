@@ -129,28 +129,28 @@ Lastly, sometimes the way you got your foothold could be a massive hint on where
 ### Example:
 ##### HTB - Artificial (Easy):
 Artificial was running a self-hosted web user interface for managing and scheduling backups.
-Art-1
+![](Art-1.png)
 
 Simply port forwarding it with SSH allows us to interact with it from the attacker machine. The problem here is that it required a password to use. 
 ```
 ssh -L 9898:localhost:9898 gael@<ip>
 ```
-Art-2
+![](Art-2.png)
 
 From there I decided to give it's related files a look to see if I could find credentials in configuration files for a quick win. Unfortunately, my user didn't have access to view the files of importance in`/opt/backrest`.
-Art-3
-Art-4
+![](Art-3.png)
+![](Art-4.png)
 
 I then went to check the backup location for it where I did have access to read files. I found a username and a password hash that was base64 encoded which I had to decode then crack in order to get the password for it. 
-Art-5
-Art-6
+![](Art-5.png)
+![](Art-6.png)
 
 Once I was logged in, the first thing I did was read the documentation for using it. I realized I could use hooks to run a script that could give me a reverse shell when I was adding a repo, I just needed to make sure the hook would run under any condition. https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
-Art-7
+![](Art-7.png)
 
 Since backrest was running with `root` privileges, I would naturally be gaining a `root` shell from this method. Therefore, after running any action on the repo `hello` (in this case, I ran `Check Now`), the hook would run, giving me a reverse shell with root privileges.
-Art-8
-Art-9
+![](Art-8.png)
+![](Art-9.png)
 
 ### Conclusion
 I would have loved to make this longer for better explanations and more examples, but I feel like it would have been left unread or would be overwhelming, so I tried to keep it as nice and simple as possible. I would hope this helps to at least give you a sense of direction when it comes to privilege escalation for Linux to where it feels like you're playing a game of hide and seek. On the bright side, it only gets harder with Windows :)
