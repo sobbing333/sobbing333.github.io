@@ -1,7 +1,7 @@
 ---
 title: Sauna - Writeup
 published: 2026-01-03
-description: "Writeup for the HackTheBox linux machine, 'Sauna'"
+description: "Writeup for the HackTheBox windows AD machine, 'Sauna'"
 tags: ["HTB", "AD", "Windows", "Easy"]
 category: Writeup
 draft: false
