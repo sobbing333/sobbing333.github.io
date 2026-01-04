@@ -8,11 +8,11 @@ draft: false
 ---
 
 ### Summary
-Sauna is an AD (Active Directory) box on HTB that features a DC (Domain Controller) that we have to get a foothold on without any credentials to start off with. This box is amazing practice for AD where you have to do some passive enumeration in order to find a valid user which you can then perform AS-REP roasting. From there your required to notice credentials that are being used to log in for another account. From there you simply need to dump the NTML hashes using those new credentials and you are able to perform a pass the hash attack to get in as `adminsitrator`. 
+Sauna is an AD (Active Directory) box on HTB that features a DC (Domain Controller) that we have to get a foothold on without any credentials to start off with. This box is amazing practice for AD where you have to do some passive enumeration in order to find a valid user which you can then perform AS-REP roasting. From there your required to notice credentials that are being used to log in for another account. After that, you simply need to dump the NTLM hashes using those new credentials and you are able to perform a pass the hash attack to get in as `adminsitrator`. 
 
 ### 1. Enumeration
 ##### 1.1 Nmap Scan
-Starting off with a simple `nmap` scan, I was able to see that I was very likely dealing with a DC (Domain Controller), judging by the open ports such as `ldap`, `kerberos` and others. Since I wasn't given credentials for the domain, I assumed I would be getting my foothold via some form of credential leak although there are other ways to get footholds such as getting access to `ssh` keys (There are many more ways).
+Starting off with a simple `nmap` scan, I was able to see that I was very likely dealing with a DC, judging by the open ports such as `ldap`, `kerberos` and others. Since I wasn't given credentials for the domain, I assumed I would be getting my foothold via some form of credential leak although there are other ways to get footholds such as getting access to `ssh` keys (There are many more ways).
 
 ![](sauna-1.png)
 
@@ -40,7 +40,7 @@ To be thorough, I used `enum4linux` for one last check to see if I could extract
 
 ![](sauna-4.png)
 
-##### 1.3 RPC (Port: )
+##### 1.3 RPC (Port: 135 and 593)
 Similar to SMB, we can check if we can take advantage of a null session to enumerate the domain and users.
 
 Using `rpcclient`: 
