@@ -1,3 +1,12 @@
+---
+title: Sauna - Writeup
+published: 2026-01-03
+description: "Writeup for the HackTheBox linux machine, 'Sauna'"
+tags: ["HTB", "AD", "Windows", "Easy"]
+category: Writeup
+draft: false
+---
+
 ### Summary
 Sauna is an AD (Active Directory) box on HTB that features a DC (Domain Controller) that we have to get a foothold on without any credentials to start off with. This box is amazing practice for AD where you have to do some passive enumeration in order to find a valid user which you can then perform AS-REP roasting. From there your required to notice credentials that are being used to log in for another account. From there you simply need to dump the NTML hashes using those new credentials and you are able to perform a pass the hash attack to get in as `adminsitrator`. 
 
